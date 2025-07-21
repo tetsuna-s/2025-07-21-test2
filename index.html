@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Lumière - カフェ ルミエール</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #faf8f5;
+        }
+
+        header {
+            background-color: #8B4513;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        main {
+            margin-top: 60px;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(139, 69, 19, 0.7), rgba(139, 69, 19, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23D2691E" width="1200" height="600"/><circle cx="600" cy="300" r="150" fill="%238B4513" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #D2691E;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #A0522D;
+        }
+
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #8B4513;
+        }
+
+        .about {
+            background-color: white;
+            margin: 2rem auto;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            background-color: #D2691E;
+            height: 300px;
+            border-radius: 10px;
+            opacity: 0.8;
+        }
+
+        .menu {
+            background-color: #f5f5f5;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .menu-item {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item h3 {
+            color: #8B4513;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .menu-item p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            color: #D2691E;
+            font-weight: bold;
+        }
+
+        .contact {
+            background-color: white;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            padding: 2rem;
+        }
+
+        .contact-item h3 {
+            color: #8B4513;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                margin-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Café Lumière</div>
+            <ul>
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#about">私たちについて</a></li>
+                <li><a href="#menu">メニュー</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <h1>Café Lumière</h1>
+            <p>心温まる一杯と、特別なひとときを</p>
+            <a href="#menu" class="btn">メニューを見る</a>
+        </section>
+
+        <section id="about" class="about">
+            <h2>私たちについて</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>カフェ ルミエールは、2010年にオープンした地域に愛されるカフェです。厳選された豆から丁寧に淹れるコーヒーと、心を込めて作る手作りスイーツで、お客様に特別な時間をお届けしています。</p>
+                    <br>
+                    <p>店内は温かみのある照明と木の温もりを感じる内装で、ゆったりとした時間をお過ごしいただけます。読書や仕事、友人との語らいなど、それぞれの時間を大切にできる空間づくりを心がけています。</p>
+                </div>
+                <div class="about-image"></div>
+            </div>
+        </section>
+
+        <section id="menu" class="menu">
+            <h2>人気メニュー</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h3>ブレンドコーヒー</h3>
+                    <p>毎日焙煎する自家製ブレンド。深い香りとまろやかな味わいが特徴です。</p>
+                    <p class="price">¥450</p>
+                </div>
+                <div class="menu-item">
+                    <h3>カフェラテ</h3>
+                    <p>エスプレッソとミルクの絶妙なバランス。ラテアートもお楽しみください。</p>
+                    <p class="price">¥520</p>
+                </div>
+                <div class="menu-item">
+                    <h3>季節のタルト</h3>
+                    <p>旬のフルーツを使った手作りタルト。サクサクの生地が自慢です。</p>
+                    <p class="price">¥580</p>
+                </div>
+                <div class="menu-item">
+                    <h3>ベイクドチーズケーキ</h3>
+                    <p>濃厚でなめらかな口当たり。コーヒーとの相性も抜群です。</p>
+                    <p class="price">¥520</p>
+                </div>
+                <div class="menu-item">
+                    <h3>クロワッサンサンド</h3>
+                    <p>サクサクのクロワッサンに新鮮な野菜とハムをサンド。朝食にも最適。</p>
+                    <p class="price">¥680</p>
+                </div>
+                <div class="menu-item">
+                    <h3>抹茶ラテ</h3>
+                    <p>京都産の抹茶を使用。ほろ苦さとミルクの甘さが絶妙です。</p>
+                    <p class="price">¥550</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>お問い合わせ</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>営業時間</h3>
+                    <p>月〜金: 7:00 - 21:00</p>
+                    <p>土日祝: 8:00 - 22:00</p>
+                </div>
+                <div class="contact-item">
+                    <h3>所在地</h3>
+                    <p>〒150-0001</p>
+                    <p>東京都渋谷区神宮前1-2-3</p>
+                </div>
+                <div class="contact-item">
+                    <h3>ご連絡先</h3>
+                    <p>電話: 03-1234-5678</p>
+                    <p>Email: info@cafe-lumiere.jp</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Café Lumière. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+</body>
+</html>
